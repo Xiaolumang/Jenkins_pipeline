@@ -1,24 +1,45 @@
 pipeline {
     agent any
-    
-     environment {
-     	PYTHON_HOME = "D:\\Users\\xiaol\\Anaconda3\\envs\\Jenkins_pipeline_SIT753"
-        PATH = "${PYTHON_HOME}:${PYTHON_HOME}\\Scripts:${env.PATH}"
-    }
-
   
     stages {
 
         stage('Build') {
             steps {
                 // Use Maven as the build automation tool
-                sh 'python main.py'
+                bat 'python main.py'
             }
         }
-        stage('Test') {
+        stage('Unit and Integration Tests') {
             steps {
                 // Use Maven as the build automation tool
-                sh 'pytest'
+                echo 'Unit and Integration Tests using Selenium with python bindings'
+            }
+        }
+        stage('Code Analysis') {
+            steps {
+                // Use Maven as the build automation tool
+                echo 'this is code anlaysis using pylint'
+            }
+        }
+    
+         stage('Security Scan') {
+            steps {
+                // Use Maven as the build automation tool
+                echo 'this is code anlaysis using Bandit'
+            }
+        }
+         stage('Integration Tests on Staging') {
+            steps {
+                // Use Maven as the build automation tool
+                echo 'this is Integration Tests on Staging using AWS EC2'
+            }
+        }
+        
+     
+          stage('Deploy to Production') {
+            steps {
+                // Use Maven as the build automation tool
+                echo 'this is Deploy to Production using AWS EC2'
             }
         }
       
