@@ -51,10 +51,12 @@ pipeline {
     post {
         success {
             // Send email notification on pipeline success
-                
+                archiveArtifacts(artifacts: 'logs/*.log', fingerprint: true),
+
                 mail to: "Xiaolumangoncloudnine@gmail.com",
                 subject: "Pipeline Status: Success",
-                body: "The pipeline has been successfully executed."
+                body: "The pipeline has been successfully executed.",
+                attachments: 'logs/*.log'
          
             
         }
