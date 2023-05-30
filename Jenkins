@@ -53,7 +53,7 @@ pipeline {
             emailext (
                 to: 'Xiaolumangoncloudnine@gmail.com',
                 subject: 'Build Logs',
-                body: 'Please find the attached log files.'
+                body: 'success. Please find the attached log files.'
             
             )
          
@@ -63,8 +63,12 @@ pipeline {
         failure {
             // Send email notification on pipeline failure
              
-                emailext body: "The pipeline has failed. Please check the logs for more details."
-  
+                emailext (
+                to: 'Xiaolumangoncloudnine@gmail.com',
+                subject: 'Build Logs',
+                body: 'failed.Please find the attached log files.'
+            
+            )
             
         }
     }
