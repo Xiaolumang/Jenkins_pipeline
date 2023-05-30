@@ -50,12 +50,12 @@ pipeline {
   
     post {
         success {
-            // Send email notification on pipeline success
-               
-
-              
-               emailext body: "The pipeline has been successfully executed."
-              
+            emailext (
+                to: 'recipient@example.com',
+                subject: 'Build Logs',
+                body: 'Please find the attached log files.'
+            
+            )
          
             
         }
