@@ -54,7 +54,7 @@ pipeline {
                
 
               
-               emailext body: "The pipeline has been successfully executed.",
+               emailext body: "The pipeline has been successfully executed."
               
          
             
