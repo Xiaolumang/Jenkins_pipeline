@@ -50,12 +50,12 @@ pipeline {
   
     post {
         success {
-        emailext (attachLog: true, body: 'Hello', subject: 'Jenkins', to: 'Xiaolumangoncloudnine@gmail.com')
+        emailext (attachLog: true, body: 'Succeed', subject: 'Jenkins', to: 'Xiaolumangoncloudnine@gmail.com')
         }
       
         failure {
             // Send email notification on pipeline failure
       
-           emailext( attachLog: true, body: 'Hello', subject: 'Jenkins', to: 'Xiaolumangoncloudnine@gmail.com' )}
+           emailext( attachLog: true, body: 'Failed', subject: 'Jenkins', to: 'Xiaolumangoncloudnine@gmail.com' )}
     }
 }
