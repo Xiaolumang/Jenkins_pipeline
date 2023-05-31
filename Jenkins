@@ -50,14 +50,12 @@ pipeline {
   
     post {
         success {
-          mail (bcc: '', body: 'Hi', cc: '', from: '', replyTo: '', subject: 'Jenkins', to: 'Xiaolumangoncloudnine@gmail.com')
-            
+         emailext (body: '', subject: '', to: 'Xiaolumangoncloudnine@gmail.com' )
         }
       
         failure {
             // Send email notification on pipeline failure
       
-            mail( bcc: '', body: 'Hi', cc: '', from: '', replyTo: '', subject: 'Jenkins', to: 'Xiaolumangoncloudnine@gmail.com')
-        }
+            emailext( body: '', subject: '', to: 'Xiaolumangoncloudnine@gmail.com') }
     }
 }
