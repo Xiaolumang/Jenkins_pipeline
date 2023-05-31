@@ -51,7 +51,7 @@ pipeline {
     post {
         success {
             emailext (
-          attachLog: true, body: 'Success', subject: 'Jenkins Build', to: 'Xiaolumangoncloudnine@gmail.com'
+          attachLog: true, body: 'Success', subject: 'Jenkins Build', to: 'Xiaolumangoncloudnine@gmail.com')
          
             
         }
