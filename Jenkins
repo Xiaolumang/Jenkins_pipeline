@@ -51,11 +51,7 @@ pipeline {
     post {
         success {
             emailext (
-                to: 'Xiaolumangoncloudnine@gmail.com',
-                subject: 'Build Logs',
-                body: 'success. Please find the attached log files.'
-            
-            )
+            emailext attachLog: true, body: 'Success', subject: 'Jenkins Build', to: 'Xiaolumangoncloudnine@gmail.com'
          
             
         }
@@ -64,10 +60,7 @@ pipeline {
             // Send email notification on pipeline failure
              
                 emailext (
-                to: 'Xiaolumangoncloudnine@gmail.com',
-                subject: 'Build Logs',
-                body: 'failed.Please find the attached log files.'
-            
+               emailext attachLog: true, body: 'Failed', subject: 'Jenkins Build', to: 'Xiaolumangoncloudnine@gmail.com'
             )
             
         }
